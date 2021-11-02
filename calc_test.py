@@ -1,4 +1,6 @@
 """Testing the Calculator"""
+import pytest
+
 from calc_main import Calculator
 
 
@@ -49,3 +51,11 @@ def test_calculator_divide():
     result = calc.divide(2, 1)
     # Assert
     assert result == 2
+
+
+def test_calculator_divide_infinite():
+    """Making a exception handler to avoid infinite result"""
+    calc = Calculator()
+    with pytest.raises(Exception):
+        calc.divide(2,0)
+    assert calc.result == 0, 'The divisor cannot be zero'
