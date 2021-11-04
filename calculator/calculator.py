@@ -8,10 +8,9 @@ class Calculator:
     """This is the Calculator class"""
     history = []
 
-
     @staticmethod
     def get_history():
-        """get the history"""
+        """gets history"""
         get_history = Calculator.history
         return get_history
 
@@ -31,7 +30,6 @@ class Calculator:
         Calculator.history.append(calculation)
         return True
 
-
     @staticmethod
     def get_last_calculation_result():
         """gets the result of the last/most recent calculation stored in the history"""
@@ -41,8 +39,7 @@ class Calculator:
     @staticmethod
     def get_last_calculation_object():
         """this method return the object of the last calculation"""
-        result_object = Calculator.get_last_calculation()
-        return result_object
+        return Calculator.history[Calculator.history_count() - 1]
 
     @staticmethod
     def clear_history():
@@ -54,6 +51,7 @@ class Calculator:
     def history_count():
         """method to count the length of the history"""
         return len(Calculator.history)
+
 
     @staticmethod
     def add_numbers(value_a, value_b):
