@@ -1,5 +1,5 @@
 """This is the addition calculation that inherits val A & B from the calculation class"""
-from calc.calculation import Calculation
+from calc.calculations.calculation import Calculation
 
 # This is how you extend the Addition class with the Calculation
 
@@ -8,4 +8,7 @@ class Addition(Calculation):
     the calculation parent class"""
     def get_result(self):
         """get result method"""
-        return self.value_a + self.value_b
+        sum_of_values = 0.0
+        for value in self.values:
+            sum_of_values = value + sum_of_values
+        return sum_of_values
