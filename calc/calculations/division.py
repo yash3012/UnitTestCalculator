@@ -8,7 +8,5 @@ class Division(Calculation):
     """div calculation obj"""
     def get_result(self):
         """method to get division results"""
-        result = 1.0
-        for value in self.values:
-            result = result / value
+        result = self.values[0] / self.values[1]
         return result
