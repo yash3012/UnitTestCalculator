@@ -1,17 +1,17 @@
-"""This main.py file tests if the calculator can do calculations properly"""
+"""This main.py file tests if the csv files are read?"""
 import time
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 from calc.calculations.addition import Addition
 from calc.calculations.subtraction import Subtraction
 from calc.calculations.multiplication import Multiplication
 from calc.calculations.division import Division
 
 
-add= pd.read_csv("tests/test_data/addition.csv")[:30]
-sub= pd.read_csv("tests/test_data/subtraction.csv")[:30]
-mul= pd.read_csv("tests/test_data/multiplication.csv")[:30]
-div= pd.read_csv("tests/test_data/division.csv")[:30]
+add= pd.read_csv("tests/test_data/addition.csv")
+sub= pd.read_csv("tests/test_data/subtraction.csv")
+mul= pd.read_csv("tests/test_data/multiplication.csv")
+div= pd.read_csv("tests/test_data/division.csv")
 
 try:
     result_directory = Path("log_files/")
@@ -20,12 +20,13 @@ try:
     result_output_directory = Path("after_test/")
     result_output_directory.mkdir(parents = True, exist_ok = True)
 
-except:
+except: # pylint: disable=bare-except
     print("Directories Already Present")
 name_of_files= ["addition.csv", "subtraction.csv", "multiplication.csv", "division.csv"]
 files_for_calc= [add, sub, mul, div]
 operations=[Addition, Subtraction, Multiplication, Division]
-for i in range(len(name_of_files)):
+
+for i, name_of_files in enumerate(name_of_files):
     name = name_of_files[i]
     print(name + " Process Running")
     t = time.time()
@@ -53,9 +54,13 @@ for i in range(len(name_of_files)):
                                    + "\t" + (name_of_files[i][:-4]) + "\t" + str(result) + "\n")
                 files_for_calc[i].to_csv("after_test/" + name_of_files[i])
 
+
             except ZeroDivisionError:
+
                 file_for_exceptions.write(str(j) + "\t" + str(nums[0]) + "\t" + str(nums[1])
-                                          + "\t" + (name_of_files[i][:-4]) + "\t" + "ZeroDivisionError" + "\n")
+
+                            + "\t" + (name_of_files[i][:-4]) + "\t" + "ZeroDivisionError" + "\n")
+
             continue
 
         calculations = operations[i](nums)
