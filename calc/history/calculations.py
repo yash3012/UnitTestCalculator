@@ -49,16 +49,16 @@ class Calculations:
         return True
     @staticmethod
     def add_subtraction_calculation(values):
-        """ get a specific calculation from history"""
+        """ Perform subtraction and add the obj to history using factory method"""
         Calculations.add_calculation(Subtraction.create(values))
         return True
     @staticmethod
     def add_multiplication_calculation(values):
-        """ get a specific calculation from history"""
+        """ Perform multiplication and add the obj to history using factory method"""
         Calculations.add_calculation(Multiplication.create(values))
         return True
     @staticmethod
     def add_division_calculation(values):
-        """ get a specific calculation from history"""
+        """ Perform division and add the obj to history using factory method"""
         Calculations.add_calculation(Division.create(values))
         return True

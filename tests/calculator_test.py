@@ -2,6 +2,7 @@
 import pytest
 from calc.calculator import Calculator
 from calc.history.calculations import Calculations
+from calc.calculations.division import Division
 @pytest.fixture
 
 def clear_history_fixture():
@@ -40,8 +41,10 @@ def test_calculator_divide_static(clear_history_fixture):
     Calculator.divide_numbers(my_tuple)
     assert Calculator.get_last_result_value() == 2.0
 
-#def test_calculator_division_exception():
-    #"""Testing the divide method of the calculator when dividing by zero"""
-    #with pytest.raises(ZeroDivisionError):
-        #my_tuple = (10.0, 0)
-        #Calculator.divide_numbers(my_tuple)
+def test_calculator_division_exception():
+    """Testing the divide method of the calculator when dividing by zero"""
+    my_tuple = (10.0, 0)
+    division = Division(my_tuple)
+    with pytest.raises(ZeroDivisionError):
+        result = division.get_result()
+        assert result is True
