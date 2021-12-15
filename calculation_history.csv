@@ -1,2 +1,10 @@
 id,op,v0,v1,res
 1,Addition,1.0,2.0,3.0
+2,Addition,1.0,2.0,3.0
+3,Multiplication,4.0,6.0,24.0
+4,Subtraction,8.0,2.0,6.0
+5,Division,42.0,6.0,7.0
+6,Division,43.0,2.0,21.5
+7,Addition,2.0,3.0,5.0
+8,Multiplication,24.0,3.0,72.0
+9,Division,24.0,5.0,4.8
