@@ -1,8 +1,14 @@
-""" This is the file for performing operation"""
+""" This is the calculator function"""
 from calc.history.calculations import Calculations
 
 class Calculator:
     """ This is the Calculator class"""
+
+    @staticmethod
+    def get_calculations():
+        """ This is the gets the result of the calculation"""
+        # I made this method so that I don't have more than one action per function
+        return Calculations.get_calculation_history()
 
     @staticmethod
     def get_last_result_value():
