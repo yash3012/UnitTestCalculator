@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+<div class="p-5 bg-danger text-white rounded">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="{{ url_for('static', filename='images/solid.jpeg') }}" class="rounded float-left w-100" alt="internet" style="display:block;float:right;margin-right:20px;">
+    </div>
+    <div class="col-md-8">
+      <h1 class="display-1">SOLID Object Oriented Design</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid ">
+  <div class="row d-flex justify-content-around p-2">
+    <div class="col-md-8 p-2 border border-1">
+      <h3>Single Responsibility Principle : </h3>
+      <p>This states that a class should have a single responsibility, but more than that,
+        a class should only have one reason to change. Here the calculator.py class has only one task to do. That
+        is to call the addition, subtraction, multiplication and division method. The actual calculations are being
+        performed in their respective classes which is being inherited by the calculator.py class.
+      </p>
+      <img src="{{ url_for('static', filename='images/solid-S.png') }}" class="border border-3">
+
+      <h3>Open/Closed Principle : </h3>
+      <p>In the open/closed principle classes should be open for extension, but closed for modification.
+        Essentially meaning that classes should be extended to change functionality, rather than being altered into
+        something else. In our case, the addition function when initially created only added 2 numbers. after that,
+        we refactored the method, and added such functionality that it can add in more than two numbers. However,
+        we cannot make this method perform another type of calculation such as multiplication. For that we need
+        to change that calculation's respective class method.
+      </p>src="{{ url_for('static', filename='images/solid-O.png') }}"
+      <img src="{{ url_for('static', filename='images/solid-O.png') }}" class="border border-3">
+
+      <h3>Liskov Substitution Principle : </h3>
+      <p>This states that objects should be replaceable by their subtypes without altering how the program works.
+        In other words, derived classes must be substitutable for their base classes without causing errors.
+        In our case, we can see in the above picture that Addition.py class extends Calculation.py class.
+        It is able to perform all the functions that Calculation.py class can perform and on top of that,
+        it can also perform the addition function as well.
+      </p>
+
+      <h3>Interface Segregation Principle : </h3>
+      <p>This states that many client-specific interfaces are better than one general-purpose interface.
+        In other words, classes should not be forced to implement interfaces they do not use. In our calculator example
+        we really dont have such implementation but in a general sense, we should have a class which only has one function
+        or method that performs a single task and that class is inherited by multiple classes. For example, we can have
+        a class that prints the result but with one change that it always doubles the result. Now that class can be called
+        for any four or all four calculation class and when we use that class method to print the result, the result will
+        always be double of the actual result.</p>
+
+      <h3>Dependency Inversion Principle</h3>
+      <p>Perhaps the simplest of the principles, this states that classes should depend upon abstractions, not concretions.
+        Explicit is better than Implicit. In our case, the parent class "Calculations.py" is not dependent on its child
+        class which is "Addition.py" but rather it relies on the abstract implementation of the child class's
+        get_result() method. The parent class is not dependent on how the get_result() is implemented in the child class.</p>
+
+    </div>
+    <div class="col-md-3 p-2 bg-warning border border-1">
+      <img src="{{ url_for('static', filename='images/solid.jpg') }}" class="rounded float-left w-100" alt="internet">
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+              What is OOP?
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+            <div class="card-body">
+              <p>SOLID is a set of object oriented design principles aimed at making code more maintainable and flexible.</p>
+              <p>SOLID is an acronym that stands for the following:</p>
+              <ul>
+                <li><b>S</b>ingle responsibility principle</li>
+                <li><b>O</b>pen/closed principle</li>
+                <li><b>L</b>iskov substitution principle</li>
+                <li><b>I</b>nterface segregation principle</li>
+                <li><b>D</b>ependency inversion principle</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+{% endblock %}

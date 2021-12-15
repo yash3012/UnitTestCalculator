@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+<div class="p-5 bg-danger text-white rounded">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="{{ url_for('static', filename='images/aaa.png') }}" class="rounded float-left w-100" alt="internet" style="display:block;float:right;margin-right:20px;">
+    </div>
+    <div class="col-md-8">
+      <h1 class="display-1">AAA Testing</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid ">
+  <div class="row d-flex justify-content-around p-2">
+    <div class="col-md-8 p-2 border border-1">
+      <h3>Importance of Testing</h3>
+      <p>Software testing is the process of evaluating and verifying that a software product or application does what it is supposed to do. The benefits of testing include preventing bugs, reducing development costs and improving performance.</p>
+      <h3>AAA Testing</h3>
+      <p>This is a very important and fundamental idea of unit testing. In the overall view of any unit test application, a unit test is a three-step processes. The first one is setup test or arrange test, Act test or execute unit test and Assert means verify test result with expected results. The concept of three "A"s are given below.</p>
+      <h3>Arrange:</h3>
+      <p>This is the first step of a unit test application. Here we will arrange the test, We will do the necessary setup of the test. To perform the test we need to create an object of the targeted class, if necessary, then we need to create mock objects and other variable initialization.</p>
+      <h3>Act:</h3>
+      <p>This is the middle step of a unit step application. In this step we will execute the test. We will do the actual unit testing and the result will be obtained from the test application.</p>
+      <h3>Assert:</h3>
+      <p>This is the last step of a unit test application. In this step we will check and verify the returned result with expected results.</p>
+      <p>Example of AAA Testing in Python</p>
+      <img src="{{ url_for('static', filename='images/aaa-testing.png') }}" class="border border-3">
+
+    </div>
+    <div class="col-md-3 p-2 bg-warning border border-1">
+      <img src="{{ url_for('static', filename='images/AAA.jpeg') }}" class="rounded float-left w-100" alt="internet">
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+              What is AAA Testing?
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+            <div class="card-body">
+              Arrange-Act-Assert is a great way to structure test cases.
+              It prescribes an order of operations: Arrange inputs and targets.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+              What are the three steps of AAA?
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              AAA has three basic steps:
+              <ul>
+                <li>Arrange</li>
+                <li>Act</li>
+                <li>Assert</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

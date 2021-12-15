@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <h1>Calculation History</h1>
+       {% if calculations %}
+            <table class="table table-sm table-light">
+                <thead class="table-dark">
+                    <tr>
+                    <th scope="col">Record</th>
+                    <th scope="col">Operation</th>
+                    <th scope="col">Value 1</th>
+                    <th scope="col">Value 2</th>
+                    <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for calc in calculations %}
+                        <tr>
+                            <th scope="row">{{ calc[1]['id'] }}</th>
+                            <td>{{ calc[1]['op'] }}</td>
+                            <td>{{ calc[1]['v0'] }}</td>
+                            <td>{{ calc[1]['v1'] }}</td>
+                            <td>{{ calc[1]['res'] }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+       {% else %}
+            <p>No calculations yet</p>
+       {% endif %}
+
+
+{% endblock %}

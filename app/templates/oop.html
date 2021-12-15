@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+<div class="p-5 bg-danger text-white rounded">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="{{ url_for('static', filename='images/calculator.png') }}" class="rounded float-left w-100" alt="internet" style="display:block;float:right;margin-right:20px;">
+    </div>
+    <div class="col-md-8">
+      <h1 class="display-1">Calculator </h1>
+      <p>OOP Calculator Example</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid ">
+  <div class="row d-flex justify-content-around p-2">
+    <div class="col-md-8 p-2 border border-1">
+      <p>The calculator program uses many of the OOP principles.</p>
+      <p>1. Abstraction: In our calculator.py class we have four methods add_numbers, subtract_numbers, multiply_numbers and
+        divide_numbers which are being implemented and used. However, we only have the method skeleton there,
+        but we don't show the implementation of each of these methods, which is being done in each of the methods
+        separate classes through the calculations.py class
+      </p>
+      <img src="{{ url_for('static', filename='images/oop-abstraction.png') }}" class="border border-3" alt=" alt">
+      <br><br>
+      <p>2. Inheritance: In our calculator, the calculator.py class inherits the "add_addition_calculation" method from
+        the calculations.py class, so we need not redefine the method again. we can simply invoke the method in the child
+        class which is the calculator.py class as seen below.
+      </p>
+      <img src="{{ url_for('static', filename='images/oop-inheritance-1.png') }}" class="border border-3" alt=" alt">
+      <img src="{{ url_for('static', filename='images/oop-inheritance-2.png') }}" class="border border-3" alt=" alt">
+      <br><br>
+      <p>3. Encapsulation: As we can see, the subclass, "calculator.py" implements "calculations.py" method named
+        get_last_calculation_result_value() but it needs to be invoked by specifying the superclass name before
+        invoking the method as shown in pic below. By this method, the calculator.py class can also access a possible
+        private variable from calculations.py class.
+      </p>
+      <img src="{{ url_for('static', filename='images/oop-encapsulation-1.png') }}" class="border border-3" alt=" alt">
+      <img src="{{ url_for('static', filename='images/oop-encapsulation-2.png') }}" class="border border-3" alt=" alt">
+      <p>4. Polymorphism:  Addition.py , Subtraction.py, Multiplication.py & Division.py use the same get_result()
+        method to return the values after performing their respective operations. All classes have the same method
+        name but they are performing different operation. This is a classic example of Polymorphism.
+      </p>
+      <img src="{{ url_for('static', filename='images/oop-polymorphism-addition.png') }}" class="border border-3" alt=" alt">
+      <img src="{{ url_for('static', filename='images/oop-polymorphism-subtraction.png') }}" class="border border-3" alt=" alt">
+      <img src="{{ url_for('static', filename='images/oop-polymorphism-multiplication.png') }}" class="border border-3" alt=" alt">
+      <img src="{{ url_for('static', filename='images/oop-polymorphism-division.png') }}" class="border border-3" alt=" alt">
+
+    </div>
+    <div class="col-md-3 p-2 bg-warning border border-1">
+      <img src="{{ url_for('static', filename='images/oops.jpg') }}" class="rounded float-left w-100" alt="internet">
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+              What is OOP?
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+            <div class="card-body">
+              Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects",
+              which can contain data and code: data in the form of fields (often known as attributes or properties),
+              and code, in the form of procedures (often known as methods).
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+              What are four basics of OOP?
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              Object-oriented programming has four basic concepts:
+              <ul>
+                <li>Encapsulation</li>
+                <li>Abstraction</li>
+                <li>Inheritance</li>
+                <li>Polymorphism</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+              Encapsulation?
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              Encapsulation is one of the fundamental concepts in object-oriented programming (OOP). It describes the idea of wrapping
+              data and the methods that work on data within one unit. This puts restrictions on accessing variables and methods directly
+              and can prevent the accidental modification of data.
+              <br>To prevent accidental change, an object’s variable can only be changed by an object’s method. Those types of variables
+              are known as private variables. A class is an example of encapsulation as it encapsulates all the data that is member
+              functions, variables, etc.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapsefour">
+              Abstraction?
+            </a>
+          </div>
+          <div id="collapsefour" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              Abstraction is the principle that creates a class with the intent to be inherited by other classes.
+              This way certain methods and functions that will be run by default for each child class will already be once in the
+              abstract class, so then the class can be implemented in different ways for each child class.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapsefive">
+              Inheritance?
+            </a>
+          </div>
+          <div id="collapsefive" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              Inheritance is the capability of one class to derive or inherit the properties from another class.
+              The class that derives properties is called the derived class or base class and the class from which the properties
+              are being derived is called the base class or parent class. The benefits of inheritance are:
+              <ul>
+                <li> It represents real-world relationships well.</li>
+                <li> It provides the reusability of a code. We don’t have to write the same code again and again.
+                  Also, it allows us to add more features to a class without modifying it.</li>
+                <li> It is transitive in nature, which means that if class B inherits from another class A,
+                  then all the subclasses of B would automatically inherit from class A.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapsesix">
+              Polymorphism?
+            </a>
+          </div>
+          <div id="collapsesix" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              In OOP, Polymorphism allows for the uniform treatment of classes in a hierarchy.
+              Therefore, calling code only needs to be written to handle objects from the root of the hierarchy,
+              and any object instantiated by any child class in the hierarchy will be handled in the same way.
+              Polymorphism simply means having many forms.
+              For example, we need to determine if the given species of birds fly or not,
+              using polymorphism we can do this using a single function.
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}
