@@ -1,4 +1,5 @@
 # My Calculator Program
 
-## YouTube video link for showing the calculator app : 
-## https://youtu.be/GyQQvNTNr-w
+### Below is the screenshot of the table for calculations
+
+![](../../Desktop/beautiful_tables.png)
